@@ -4,11 +4,13 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -129,10 +131,25 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <SiteHeader />
-      <main>
-        <Outlet />
-      </main>
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:border-2 focus:border-ink focus:bg-amber focus:px-4 focus:py-2 label-mono font-bold">Skip to content</a>
+      <PageFrame />
       <SiteFooter />
     </QueryClientProvider>
+  );
+}
+
+function PageFrame() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const reduce = useReducedMotion();
+  return (
+    <motion.main
+      id="main"
+      key={path}
+      initial={reduce ? false : { opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: [0.2, 0.7, 0.2, 1] }}
+    >
+      <Outlet />
+    </motion.main>
   );
 }

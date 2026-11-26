@@ -77,7 +77,7 @@ export function Hero() {
           >
             <video src={media.heroVideo} poster={media.heroPoster} autoPlay muted loop playsInline className="aspect-[4/5] w-full object-cover" aria-label="Arduino board on a workshop table while members work in the background" />
             <div className="flex items-center justify-between px-1 pt-2 label-mono !text-[0.6rem] text-paper">
-              <span>CAM_01 · LIVE FEED</span><span className="text-amber">● REC</span>
+              <span>Workshop footage · INSAT</span><span className="text-amber">IEEE RAS</span>
             </div>
           </motion.div>
           <motion.div initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 8 }} transition={{ delay: 1.4, type: "spring" }} className="absolute -left-6 -top-6 border-2 border-ink bg-amber px-3 py-2 shadow-offset label-mono font-bold">

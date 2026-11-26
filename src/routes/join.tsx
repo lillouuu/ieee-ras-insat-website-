@@ -26,6 +26,13 @@ const explore = {
   Technical: ["Mobile robots", "Embedded firmware", "PCB design", "Computer vision", "CAD & fabrication", "Control systems", "Competition teams"],
   "Non-technical": ["Event organisation", "Communication & media", "Design", "Partnerships & sponsoring", "Human resources", "Training coordination"],
 };
+const journey = [
+  { k: "Discover", d: "Come to an open session or IEEE Day and meet the chapter." },
+  { k: "Learn", d: "Workshops and training take you from your first circuit to real skills." },
+  { k: "Build", d: "Join a project team and turn ideas into working robots." },
+  { k: "Compete", d: "Represent INSAT at competitions like Eurobot and NXP Cup." },
+  { k: "Lead", d: "Run events, mentor newcomers and take a seat on the board." },
+];
 const gains = [
   { k: "Learning", d: "Hands-on workshops, from your first circuit to competition-level skills." },
   { k: "Collaboration", d: "Teammates across years and specialities who help you unblock." },
@@ -54,6 +61,21 @@ function Join() {
             <img src={photos.ieeeday.src} alt={photos.ieeeday.alt} loading="lazy" className="absolute -bottom-8 -left-6 w-1/2 -rotate-3 border-2 border-ink object-cover shadow-offset" />
           </div>
         </div>
+      </Block>
+      <Block className="border-t-2 border-ink bg-paper">
+        <SectionTag n="↗">Your journey</SectionTag>
+        <H2 className="mt-6">From curious to captain.</H2>
+        <ol className="mt-12 grid gap-px border-2 border-ink bg-ink md:grid-cols-5">
+          {journey.map((j, i) => (
+            <motion.li key={j.k} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+              className="group relative bg-card p-5 transition-colors hover:bg-amber focus-within:bg-amber">
+              <span className="label-mono text-ieee">Step 0{i + 1}</span>
+              <p className="mt-3 font-display text-3xl font-extrabold">{j.k}</p>
+              <p className="mt-2 text-sm text-muted-foreground group-hover:text-ink">{j.d}</p>
+              {i < journey.length - 1 && <span aria-hidden className="absolute -right-3 top-1/2 z-10 hidden size-6 -translate-y-1/2 items-center justify-center border-2 border-ink bg-paper font-mono text-xs md:flex">→</span>}
+            </motion.li>
+          ))}
+        </ol>
       </Block>
       <section className="border-y-2 border-ink bg-amber px-6 py-24">
         <div className="mx-auto max-w-7xl">
