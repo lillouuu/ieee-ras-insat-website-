@@ -83,6 +83,20 @@ export const flagships: Flagship[] = [
   { slug: "innoweek", name: "InnoWeek", tagline: "Initiative", body: "Description, format and edition dates to be supplied by the chapter.", facts: [], tone: "bg-crimson text-paper", toConfirm: true },
 ];
 
+/** Current executive board, as supplied by the chapter. Photos not yet available. */
+export const currentBoard = {
+  mandate: "Current mandate",
+  members: [
+    { name: "Mohamed Baccouche", role: "Chair" },
+    { name: "Yasmin Loukil", role: "Vice Chair — Technical Activities" },
+    { name: "Tasnim Daly", role: "Vice Chair — Membership Activities" },
+    { name: "Senda Derouiche", role: "General Secretary" },
+    { name: "Fatma Messai", role: "Treasurer" },
+    { name: "Loua Klai", role: "Logistics Manager" },
+    { name: "Belkis Ghedir", role: "Media Manager" },
+  ],
+};
+
 /** Board shown on the previous website (2021/2022 mandate). Archive only — not the current board. */
 export const pastBoard = {
   mandate: "2021–2022",
@@ -97,7 +111,7 @@ export const pastBoard = {
   ],
 };
 
-export const structure = ["Chair", "Vice Chair", "General Secretary", "Treasurer", "Training", "Media", "Sponsoring", "Human Resources"];
+export const structure = ["Chair", "Vice Chair — Technical", "Vice Chair — Membership", "General Secretary", "Treasurer", "Logistics", "Media"];
 
 export const projectsPortfolio = [
   { name: "NEGHLBOUH", kind: "IoT", body: "A smart tracking gadget — an IoT project focused on tracking solutions for everyday use cases.", image: neghlbouh.url },

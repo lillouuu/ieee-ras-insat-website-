@@ -6,7 +6,7 @@ import { KineticHeadline, ScrollHighlight, SectionTag, ToConfirm } from "@/compo
 import { RasLink, RasAnchor } from "@/components/site/RasButton";
 import { Schematic } from "@/components/site/Schematic";
 import { domains, photos } from "@/content/site";
-import { extraMedia, history, morePhotos, pastBoard, structure } from "@/content/pages";
+import { extraMedia, history, morePhotos, currentBoard, pastBoard, structure } from "@/content/pages";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/about")({
@@ -192,9 +192,16 @@ function Team() {
           <SectionTag n="E">Team & leadership</SectionTag>
           <H2 className="mt-6">Run by students, renewed every year.</H2>
           <p className="mt-6 text-muted-foreground">An elected executive board leads the chapter each mandate, supported by members in technical teams and organising committees.</p>
-          <div className="mt-8 border-2 border-dashed border-ink bg-paper p-6">
-            <p className="label-mono">Current board</p>
-            <p className="mt-2 font-serif text-2xl italic">The current board's names, roles and photos are being collected and will appear here.</p>
+          <div className="mt-8 border-2 border-ink bg-paper">
+            <div className="flex items-center justify-between border-b-2 border-ink bg-ieee px-4 py-2 label-mono text-paper"><span>Current board</span><span>{currentBoard.mandate}</span></div>
+            <ul className="divide-y divide-ink/30">
+              {currentBoard.members.map((m) => (
+                <li key={m.name} className="flex flex-wrap items-baseline justify-between gap-2 px-4 py-3 transition-colors hover:bg-amber">
+                  <span className="font-display text-lg font-bold">{m.name}</span>
+                  <span className="label-mono text-muted-foreground">{m.role}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <img src={photos.teamGroup.src} alt={photos.teamGroup.alt} loading="lazy" className="mt-8 aspect-[4/3] w-full -rotate-1 border-2 border-ink object-cover shadow-offset" />
         </div>
