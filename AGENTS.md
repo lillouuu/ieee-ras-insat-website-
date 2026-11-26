@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- All chapter facts (stats, domains, projects, milestones, partners, contact) live in `src/content/site.ts`; items needing verification carry `toConfirm`/`resultsToConfirm` flags so unverified facts are never shown as confirmed.
+- Shared visual primitives live in `src/components/site/` (RasButton, PhotoCollage, motion-bits); home sections live in `src/components/home/`. Animations use `motion` and respect reduced motion.
