@@ -38,8 +38,8 @@ export function InquiryForm({ subjectPrefix, fields = [] }: { subjectPrefix: str
     setSent(true);
   }
 
-  const input = (bad?: string) => cn("mt-1.5 w-full border-2 bg-card px-3 py-3 font-sans text-base normal-case tracking-normal transition-shadow focus:outline-none focus:ring-4 focus:ring-ring", bad ? "border-crimson" : "border-ink");
-  const Err = ({ id, msg }: { id: string; msg?: string }) => msg ? <span id={id} className="mt-1 block font-sans text-xs normal-case tracking-normal text-crimson">{msg}</span> : null;
+  const input = (bad?: string | undefined) => cn("mt-1.5 w-full border-2 bg-card px-3 py-3 font-sans text-base normal-case tracking-normal transition-shadow focus:outline-none focus:ring-4 focus:ring-ring", bad ? "border-crimson" : "border-ink");
+  const Err = ({ id, msg }: { id: string; msg?: string | undefined }) => msg ? <span id={id} className="mt-1 block font-sans text-xs normal-case tracking-normal text-crimson">{msg}</span> : null;
 
   return (
     <form
